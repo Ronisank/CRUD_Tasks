@@ -1,4 +1,5 @@
 const yup = require('yup');
+const tasks = require("../utils/tasks");
 
 const taskSchema = yup.object().shape({
     title: yup.string("Erro: Necessário preencher o campo title!")
@@ -11,10 +12,16 @@ const taskSchema = yup.object().shape({
 
 const validation = async (req, res, next) => {
     try {
-        await taskSchema.validate(req.body);
+        await taskSchema.validate(req.body, { abortEarly: false });        
         next();
-    } catch (error) {
-        return res.status(400).json({ message: error.message });
+    } catch (err) {
+        return res.status(400).json({ 
+            erro: true,
+            messagem: err.errors
+         });
     }
 };
-module.exports = validation;
+
+module.exports = {
+    validation,
+    };
