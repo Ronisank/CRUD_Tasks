@@ -1,27 +1,28 @@
 const yup = require('yup');
-const tasks = require("../utils/tasks");
 
 const taskSchema = yup.object().shape({
-    title: yup.string("Erro: Necessário preencher o campo title!")
-    .required("Erro: Necessário preencher o campo title!"),
-    description: yup.string("Erro: Necessário preencher o campo description!")
-    .required("Erro: Necessário preencher o campo description!"),
-    dueDate: yup.string("Erro: Necessário preencher o campo duedate!")
-    .required("Erro: Necessário preencher o campo duedate!"),    
+    title: yup.string("Adicione um titulo"),//.required("Erro: Necessário preencher o campo title!"),
+    description: yup.string("Adicione um descrição"),//.required("Erro: Necessário preencher o campo description!"),
+    dueDate: yup.string("Adicione uma data de conclusão").required("Erro: Necessário preencher o campo duedate!"),
 });
 
-const validation = async (req, res, next) => {
+const validation = (req, res, next) => {
     try {
-        await taskSchema.validate(req.body, { abortEarly: false });        
-        next();
-    } catch (err) {
-        return res.status(400).json({ 
+        taskSchema.isValid(req.body, { abortEarly: false });
+            if(taskSchema.dueDate === " "){
+                throw new Error("Erro: Necessário preencher os campos title, description e duedate!");
+            }else{
+                next();
+            }        
+    }catch (err) {
+        return res.status(400).json({
             erro: true,
-            messagem: err.errors
-         });
+            messagem: err.Error
+        });
     }
+   
 };
 
 module.exports = {
     validation,
-    };
+};
