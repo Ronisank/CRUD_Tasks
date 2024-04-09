@@ -1,31 +1,25 @@
-const validation = (req, res, next) => {
-    
+const yup = require('yup');
+
+
+const linkSchema = yup.object().shape({
+    title: yup.string().min(3).required("O título é obrigatório"),
+    description: yup.string().min(5).required("A descrição é obrigatória"),
+    conclusion: yup.string().required("A conclusão é obrigatória"),
+    id: yup.number(),
+});
+
+async function validateNewTask(req, res, next) {
     try {
-        if (req.title === "" || req.title === null)
-            res.status(400).send({
-                err: true,
-                message: "The title field is mandatory"
-            });
-        if (!req.description === "")
-            res.status(400).send({
-                err: true,
-                message: "The description field is mandatory"
-            });
-        if (!req.dueData === "")
-            res.status(400).send({
-                err: true,
-                message: "The dueData field is mandatory"
-            });
-            next();
-    } catch (err) {
-        res.status(400).send({
-            err: true,
-            message: err.message
-        });
+        const validate = await linkSchema.validate(req.body);
+            req.body = validate;
+            next();    
+     
+    }catch (err) {
+        console.error(err);
+        res.status(500).send(err.message);
     }
+}
 
-};
+module.exports = { validateNewTask };
 
-module.exports = {
-    validation,
-};
+

@@ -1,23 +1,24 @@
 const express = require('express');
-const {listTasks} = require('./controllers/listTasks');
-const {createTask} = require('./controllers/createTasks');
-const {updateTask} = require('./controllers/updateTasks');
-const {deleteTask} = require('./controllers/deleteTasks');
-const {validation} = require('./Middlewares/validation');
-const {verifyJWT} = require('./Middlewares/authToken');
-const {login} = require('./controllers/login');
+const router = express.Router();
+const { verifyJWT } = require('./Middlewares/authToken');
+const {validateNewTask} = require('./Middlewares/validation');
+const { login } = require('./controllers/login');
+const { listTasks} = require('./controllers/listTasks');
+const { createTask } = require('./controllers/createTasks');
 
 
-const router = express();
 
-//router.use("/tasks",validation);
-
-
+// Rota de login (exemplo)
 router.post('/login', login, verifyJWT);
-router.get('/tasks', verifyJWT, listTasks);
-router.post('/tasks', validation, createTask );
-//router.put('/tasks/:id', updateTasks);
-//router.delete('/tasks/:id', deleteTasks);
 
+// Rota de listagem de tarefas
+router.get('/tasks',listTasks);
+
+// Rota de criação de tarefas (com validação)
+router.post('/tasks',validateNewTask, createTask);
+
+// Rotas de atualização e exclusão (adapte com validação se necessário)
+// router.put('/tasks/:id', verifyJWT, updateTask);
+// router.delete('/tasks/:id', verifyJWT, deleteTask);
 
 module.exports = router;
