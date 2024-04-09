@@ -4,17 +4,20 @@ const {createTask} = require('./controllers/createTasks');
 const {updateTask} = require('./controllers/updateTasks');
 const {deleteTask} = require('./controllers/deleteTasks');
 const {validation} = require('./Middlewares/validation');
-    
+const {verifyJWT} = require('./Middlewares/authToken');
+const {login} = require('./controllers/login');
 
 
 const router = express();
 
-router.use("/tasks",validation);
+//router.use("/tasks",validation);
 
 
-router.get('/tasks',listTasks);
-router.post('/tasks', validation, createTask);
+router.post('/login', login, verifyJWT);
+router.get('/tasks', verifyJWT, listTasks);
+router.post('/tasks', validation, createTask );
 //router.put('/tasks/:id', updateTasks);
 //router.delete('/tasks/:id', deleteTasks);
+
 
 module.exports = router;
