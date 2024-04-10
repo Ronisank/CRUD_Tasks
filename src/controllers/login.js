@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 const login = (req, res, next) => {
     let { id, name, password } = req.body;
     try {
-
         if (name === user.name && password === user.password) {
             //auth ok
             //id = user.id; //esse id viria do banco de dados
@@ -17,11 +16,9 @@ const login = (req, res, next) => {
         }
     } catch (error) {
 
-        res.status(500).send('Login inválido!' + error);
+        res.status(500).json({message: 'Invalid login!' + error.message});
     }
-
 }
-
 module.exports = {
     login,
 }

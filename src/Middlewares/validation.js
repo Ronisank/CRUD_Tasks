@@ -2,9 +2,9 @@ const yup = require('yup');
 
 
 const linkSchema = yup.object().shape({
-    title: yup.string().min(3).required("O título é obrigatório"),
-    description: yup.string().min(5).required("A descrição é obrigatória"),
-    conclusion: yup.string().required("A conclusão é obrigatória"),
+    title: yup.string().min(3).required(),
+    description: yup.string().min(5).required(),
+    conclusion: yup.string().min(10, "Date format - DD/MM/YYYY").required(),
     id: yup.number(),
 });
 

@@ -1,6 +1,4 @@
-const { validateNewTask } = require("../Middlewares/validation");
 const { tasks } = require("../utils/tasks");
-
 
 const createTask = async (req, res) => {
     const task = req.body;
@@ -9,12 +7,12 @@ const createTask = async (req, res) => {
         console.log(task);
         tasks.push(task);
         res.status(201).send({
-            message: 'Tarefa criada com sucesso!',
+            message: 'Task created successfully!',
             task: task
         });
 
     } catch (error) {
-        res.status(500).send({ message: 'Erro interno do servidor: ' + error.message });
+        res.status(500).send({ message: 'Internal Server Error: ' + error.message });
     }
 };
 

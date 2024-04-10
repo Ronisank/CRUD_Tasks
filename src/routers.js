@@ -1,24 +1,31 @@
 const express = require('express');
 const router = express.Router();
-const { verifyJWT } = require('./Middlewares/authToken');
-const {validateNewTask} = require('./Middlewares/validation');
+
 const { login } = require('./controllers/login');
-const { listTasks} = require('./controllers/listTasks');
+const { validateNewTask } = require('./Middlewares/validation');
+const { pagination } = require('./Middlewares/pagination');
+
+const { listTasks } = require('./controllers/listTasks');
 const { createTask } = require('./controllers/createTasks');
+const { updateTask } = require('./controllers/updateTasks');
+const { deleteTask } = require('./controllers/deleteTasks');
+
 
 
 
 // Rota de login (exemplo)
-router.post('/login', login, verifyJWT);
+router.post('/login', login);
 
 // Rota de listagem de tarefas
-router.get('/tasks',listTasks);
+router.get('/tasks', pagination, listTasks);
 
 // Rota de criação de tarefas (com validação)
-router.post('/tasks',validateNewTask, createTask);
+router.post('/tasks', validateNewTask, createTask);
 
 // Rotas de atualização e exclusão (adapte com validação se necessário)
-// router.put('/tasks/:id', verifyJWT, updateTask);
-// router.delete('/tasks/:id', verifyJWT, deleteTask);
+router.put('/tasks/:id', validateNewTask, updateTask);
+
+//  Rota de exclusão de tarefas
+router.delete('/tasks/:id', deleteTask);
 
 module.exports = router;
