@@ -1,8 +1,9 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express'); 
+const router = express.Router(); 
 
-const { login } = require('./controllers/login');
-const { validateNewTask } = require('./Middlewares/validation');
+// ? Importação dos controllers e middlewares
+const { login } = require('./controllers/login'); 
+const { validateNewTask } = require('./Middlewares/validation'); //
 const { pagination } = require('./Middlewares/pagination');
 
 const { listTasks } = require('./controllers/listTasks');
@@ -13,7 +14,7 @@ const { deleteTask } = require('./controllers/deleteTasks');
 
 
 
-// Rota de login (exemplo)
+// ?Rota de login 
 router.post('/login', login);
 
 // Rota de listagem de tarefas
@@ -28,4 +29,4 @@ router.put('/tasks/:id', validateNewTask, updateTask);
 //  Rota de exclusão de tarefas
 router.delete('/tasks/:id', deleteTask);
 
-module.exports = router;
+module.exports = router; // ?Exportação do router para uso no index.js

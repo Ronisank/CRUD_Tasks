@@ -1,8 +1,9 @@
-const { tasks } = require("../utils/tasks");
+const { tasks } = require("../utils/tasks"); //* importa o array de tarefas
 
+//? Crie um middleware para fazer a paginação das tarefas
 const pagination = (req, res, next) => {
     try {
-        const { page = 0, limit = 3 } = req.query;
+        const { page = 0, limit = 3 } = req.query; //* Pega os valores de page e limit da query
         if (page < 1 || undefined) {
             return next();
 

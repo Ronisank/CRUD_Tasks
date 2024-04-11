@@ -1,6 +1,6 @@
-const yup = require('yup');
+const yup = require('yup'); //* Importa o yup
 
-
+//? Schema de validação para a criação e atualização de tarefas
 const linkSchema = yup.object().shape({
     title: yup.string().min(3).required(),
     description: yup.string().min(5).required(),
@@ -8,15 +8,15 @@ const linkSchema = yup.object().shape({
     id: yup.number(),
 });
 
+//? Middleware para validar a criação de tarefas
 async function validateNewTask(req, res, next) {
     try {
-        const validate = await linkSchema.validate(req.body);
-            req.body = validate;
-            next();    
-     
-    }catch (err) {
-        console.error(err);
-        res.status(500).send(err.message);
+        const validate = await linkSchema.validate(req.body); //* Valida o body da requisição
+        req.body = validate; //* Se passar na validação, o body da requisição é atualizado
+        next();
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
     }
 }
 
