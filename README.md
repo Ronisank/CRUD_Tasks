@@ -133,9 +133,13 @@ nodemon index.js
 
 }
 ```
+![Update](taskUpdate)
+
 #### Exclusão de Tarefa:
 
 *DELETE /tasks/:id*
+
+![Delete](deleteTask)
 
 #### Recursos Adicionais:
 
