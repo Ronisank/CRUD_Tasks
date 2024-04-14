@@ -86,9 +86,11 @@ nodemon index.js
 
 * Navegação entre páginas.
 
-  ![Not Pagination](notPagination.png)
+![Not Pagination](notPagination.png)
+  
 * Sem Paginação
-  ![Pagination](pagination.png)
+  
+![Pagination](Pagination.png)
 
 * Com Paginação
 
@@ -131,9 +133,13 @@ nodemon index.js
 
 }
 ```
+![Update](taskUpdate)
+
 #### Exclusão de Tarefa:
 
 *DELETE /tasks/:id*
+
+![Delete](deleteTask)
 
 #### Recursos Adicionais:
 
