@@ -17,6 +17,10 @@
 
 ### Funcionalidades:
 
+#### Login:
+
+![Login para autenticação](login.png)
+
 #### Criação de Tarefas:
 
 * Validação de campos obrigatórios e formato correto.
