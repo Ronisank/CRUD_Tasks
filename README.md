@@ -86,9 +86,11 @@ nodemon index.js
 
 * Navegação entre páginas.
 
-  ![Not Pagination](notPagination.png)
+![Not Pagination](notPagination.png)
+  
 * Sem Paginação
-  ![Pagination](Pagination.png)
+  
+![Pagination](Pagination.png)
 
 * Com Paginação
 
