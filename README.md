@@ -15,11 +15,42 @@
 
 **Desenvolvimento com VScode:** *Editor de código moderno e eficiente.*
 
+### Instalação
+```
+# Instalando o framework express 
+npm install express --save
+```
+```
+# Utilitário que reinicia automaticamente o servidor Node.js quando necessário.
+npm install -g nodemon
+```
+```
+# Instalando a biblioteca yup
+npm install yup --save
+```
+```
+# Instalando o JWT 
+npm install jsonwebtoken
+```
+```
+# Variável de ambiente, instalar localmente (recomendado)
+npm install dotenv --save
+```
+```
+# Para rodar o servidor
+nodemon index.js
+```
+
 ### Funcionalidades:
 
 #### Login:
 
 ![Login para autenticação](login.png)
+
+* Copie o Token gerado.
+* Cole o token no headers do verbo que queira autenticar.
+  
+![Autenticar](autentication.png)
 
 #### Criação de Tarefas:
 
@@ -41,11 +72,22 @@
 
 * Remoção de tarefas por ID.
 
+![Task OK](taskOk.png)
+
+![Task Not OK](errValidation.png)
+
+
 #### Paginação:
 
 * Controle do número de tarefas por página.
 
 * Navegação entre páginas.
+
+  ![Not Pagination](notPagination.png)
+* Sem Paginação
+  ![Pagination](pagination.png)
+
+* Com Paginação
 
 #### Autenticação:
 
