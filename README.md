@@ -133,13 +133,13 @@ nodemon index.js
 
 }
 ```
-![Update](taskUpdate)
+![Update](taskUpdate.png)
 
 #### Exclusão de Tarefa:
 
 *DELETE /tasks/:id*
 
-![Delete](deleteTask)
+![Delete](deleteTask.png)
 
 #### Recursos Adicionais:
 
