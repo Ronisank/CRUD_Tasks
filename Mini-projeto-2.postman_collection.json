@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "88e378f8-e44b-420b-979e-bf6cba287a99",
+		"name": "Mini-projeto-2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33911969"
+	},
+	"item": [
+		{
+			"name": "listTasks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzEyNzg3NDIwLCJleHAiOjE3MTI3ODc3MjB9.iOWBV9eRdmn-aQRDKZE0vKqiCwhGSKgJnl3xEez7o9Y",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "4",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateTask",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"secret": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzEyNzc3NTQ3LCJleHAiOjE3MTI3Nzc4NDd9.jdcmhUitkJ224L0gmtaIrdtszws1sj8bNSnh3OrDEKI",
+						"addTokenTo": "header",
+						"algorithm": "HS256",
+						"isSecretBase64Encoded": false,
+						"payload": "{}",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token",
+						"header": "{}"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzEyNzg3NDIwLCJleHAiOjE3MTI3ODc3MjB9.iOWBV9eRdmn-aQRDKZE0vKqiCwhGSKgJnl3xEez7o9Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Estudar\",\r\n    \"description\": \"Como estudar a Java\",\r\n    \"conclusion\": \"31/10/2024\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/tasks"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"John Doe\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/login"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateTask",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "id",
+						"value": "3",
+						"type": "text"
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzEyNzg3NDIwLCJleHAiOjE3MTI3ODc3MjB9.iOWBV9eRdmn-aQRDKZE0vKqiCwhGSKgJnl3xEez7o9Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Estudar\",\r\n    \"description\": \"Como estudar a Java\",\r\n    \"conclusion\": \"10/04/2024\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/tasks/6"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteTask",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzEyNzg3NDIwLCJleHAiOjE3MTI3ODc3MjB9.iOWBV9eRdmn-aQRDKZE0vKqiCwhGSKgJnl3xEez7o9Y",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:3000/tasks/12"
+			},
+			"response": []
+		}
+	]
+}
