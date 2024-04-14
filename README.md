@@ -74,8 +74,11 @@ nodemon index.js
 
 ![Task OK](taskOk.png)
 
+* Validação Ok, tarefa criada
+
 ![Task Not OK](errValidation.png)
 
+*Erro na validação.
 
 #### Paginação:
 
