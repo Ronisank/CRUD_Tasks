@@ -88,7 +88,7 @@ nodemon index.js
 
   ![Not Pagination](notPagination.png)
 * Sem Paginação
-  ![Pagination](pagination.png)
+  ![Pagination](Pagination.png)
 
 * Com Paginação
 
